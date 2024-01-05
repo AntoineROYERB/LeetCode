@@ -3,15 +3,20 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        if nums1[0] == 0:
-            nums1[:] = nums2
-        while nums1[-1] == 0:
-            print("dans le while")
-            if nums1[i] < nums2[0]:
-                i+=1
-            if nums1[i] >= nums2[0]:
-                nums1.insert(i, nums2.pop(0))
-                nums1.pop(-1)
-                i+=1         
-            if nums1[i] == 0:
-                nums1[i:] = nums2
+        numberOfValuesPopped = 0
+        if n != 0:
+            for k in range(m):
+                    if nums1[k] > nums2[0]:
+                        nums1.insert(k + numberOfValuesPopped, nums2.pop(0))
+                        del nums1[-1]
+                        numberOfValuesPopped += 1
+
+        if len(nums2) != 0:
+            print(nums1, nums2)
+            if nums2[0] <= nums1[0]:
+                for k in range(len(nums2)):
+                        del nums1[-1]
+                        nums1.insert(0, nums2[k])
+                        
+            if nums2[0] > nums1[0]:
+                nums1[-len(nums2):] = nums2
