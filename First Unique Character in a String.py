@@ -5,5 +5,3 @@ class Solution:
             if s[index] not in s_without_current_letter:
                 return index
         return -1
-sol = Solution()
-sol.firstUniqChar('Test')
