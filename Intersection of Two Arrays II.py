@@ -1,3 +1,4 @@
+#https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/674/
 class Solution:
     def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]:
         counter1, counter2 = {},{}
@@ -13,6 +14,3 @@ class Solution:
                 for k in range(min(counter1[num], counter2[num])):
                     intersect.append(num)
         return intersect
-
-sol = Solution()
-sol.intersect([1,1,2,2],[2,3,1,5,1])
